@@ -23,38 +23,75 @@ To get started with the projects, ensure you have the following prerequisites in
 
 Clone the repository to your local machine using the following command:
 
-Bash
-git
-Navigating to the Project Directory
+```bash
+git clone https://github.com/yourusername/yourrepository.git
+```
+
+### Navigating to the Project Directory
+
 Change to the project directory:
 
-Bash
-dotnetPractice
-Project Structure
+```bash
+cd dotnetPractice
+```
+
+## Project Structure
+
 The repository contains the following structure:
-sln
-ProducerConsumerSimulation/: Contains the implementation of the producer-consumer problem.
-SimulateWorkReductionWithThreads/: Contains the implementation of a simulation that reduces work using threads.
-dotnetPractice.sln: The solution file that includes both projects.
-Usage
+
+```
+dotnetPractice/
+├── ProducerConsumerSimulation/
+│   ├── ProducerConsumerSimulation.csproj
+│   ├── Program.cs
+│   └── obj/
+├── SimulateWorkReductionWithThreads/
+│   ├── SimulateWorkReductionWithThreads.csproj
+│   ├── Program.cs
+│   └── obj/
+└── dotnetPractice.sln
+```
+
+- **ProducerConsumerSimulation/**: Contains the implementation of the producer-consumer problem.
+- **SimulateWorkReductionWithThreads/**: Contains the implementation of a simulation that reduces work using threads.
+- **dotnetPractice.sln**: The solution file that includes both projects.
+
+## Usage
+
 To run either project, navigate to the respective project directory and use the following command:
-Bash
-run
-Running ProducerConsumerSimulation
-Navigate to the ProducerConsumerSimulation directory:
-Bash
-run
-Running SimulateWorkReductionWithThreads
-Navigate to the SimulateWorkReductionWithThreads directory:
-Bash
+
+```bash
+dotnet run
+```
+
+### Running ProducerConsumerSimulation
+
+Navigate to the `ProducerConsumerSimulation` directory:
+
+```bash
+cd ProducerConsumerSimulation
+dotnet run
+```
+
+### Running SimulateWorkReductionWithThreads
+
+Navigate to the `SimulateWorkReductionWithThreads` directory:
+
+```bash
 cd SimulateWorkReductionWithThreads
 dotnet run
-Contributing
+```
+
+## Contributing
+
 Contributions are welcome! If you have suggestions for improvements or new features, please fork the repository and submit a pull request.
+
 1. Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes and commit them (git commit -m 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Open a pull request.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
