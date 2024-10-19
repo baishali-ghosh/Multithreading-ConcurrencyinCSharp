@@ -1,0 +1,14 @@
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/bin/Debug/net8.0/ConnectionPoolWithBoundedQueue
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/bin/Debug/net8.0/ConnectionPoolWithBoundedQueue.deps.json
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/bin/Debug/net8.0/ConnectionPoolWithBoundedQueue.runtimeconfig.json
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/bin/Debug/net8.0/ConnectionPoolWithBoundedQueue.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/bin/Debug/net8.0/ConnectionPoolWithBoundedQueue.pdb
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.GeneratedMSBuildEditorConfig.editorconfig
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.AssemblyInfoInputs.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.AssemblyInfo.cs
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.csproj.CoreCompileInputs.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/refint/ConnectionPoolWithBoundedQueue.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.pdb
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ConnectionPoolWithBoundedQueue.genruntimeconfig.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConnectionPoolWithBoundedQueue/obj/Debug/net8.0/ref/ConnectionPoolWithBoundedQueue.dll

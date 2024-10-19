@@ -1,0 +1,14 @@
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/bin/Debug/net8.0/ConsoleApp1
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/bin/Debug/net8.0/ConsoleApp1.deps.json
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/bin/Debug/net8.0/ConsoleApp1.runtimeconfig.json
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/bin/Debug/net8.0/ConsoleApp1.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/bin/Debug/net8.0/ConsoleApp1.pdb
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.AssemblyInfoInputs.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.AssemblyInfo.cs
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.csproj.CoreCompileInputs.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/refint/ConsoleApp1.dll
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.pdb
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ConsoleApp1.genruntimeconfig.cache
+/Users/baishalighosh/Documents/dotnetPractice/ConsoleApp1/obj/Debug/net8.0/ref/ConsoleApp1.dll
