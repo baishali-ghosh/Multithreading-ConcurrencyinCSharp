@@ -2,15 +2,28 @@
 
 ## Overview
 
-This repository contains two .NET applications: **SimulateWorkReductionWithThreads** and **ProducerConsumerSimulation**. Both projects are designed to demonstrate multithreading concepts and the producer-consumer problem using .NET 8.0.
+This repository contains multiple .NET applications demonstrating various programming concepts and problem-solving techniques, with a focus on multithreading and concurrency. All projects are built using .NET 8.0.
 
 ## Table of Contents
 
+- [Projects](#projects)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Projects
+
+The following table lists all projects in the solution, ordered by complexity:
+
+| Project Name | Description |
+|--------------|-------------|
+| SimpleThreadsExample | Introduces basic thread creation and management in C#. |
+| SimulateWorkReductionWithThreads | Demonstrates work distribution across multiple threads to reduce overall processing time. |
+| ProducerConsumerSimulation | Implements the classic producer-consumer problem, showcasing thread synchronization and communication. |
+| BoundedBlockingQueue | Implements a thread-safe queue with a fixed capacity, demonstrating advanced synchronization techniques. |
+| ConnectionPoolWithBoundedQueue | Illustrates a connection pool implementation using a bounded queue, demonstrating resource management in concurrent environments. |
 
 ## Getting Started
 
@@ -35,50 +48,19 @@ Change to the project directory:
 cd dotnetPractice
 ```
 
-## Project Structure
-
-The repository contains the following structure:
-
-```
-dotnetPractice/
-├── ProducerConsumerSimulation/
-│   ├── ProducerConsumerSimulation.csproj
-│   ├── Program.cs
-│   └── obj/
-├── SimulateWorkReductionWithThreads/
-│   ├── SimulateWorkReductionWithThreads.csproj
-│   ├── Program.cs
-│   └── obj/
-└── dotnetPractice.sln
-```
-
-- **ProducerConsumerSimulation/**: Contains the implementation of the producer-consumer problem.
-- **SimulateWorkReductionWithThreads/**: Contains the implementation of a simulation that reduces work using threads.
-- **dotnetPractice.sln**: The solution file that includes both projects.
 
 ## Usage
 
-To run either project, navigate to the respective project directory and use the following command:
+To run any project, navigate to the respective project directory and use the following command:
 
 ```bash
 dotnet run
 ```
 
-### Running ProducerConsumerSimulation
-
-Navigate to the `ProducerConsumerSimulation` directory:
+For example, to run the SimpleThreadsExample:
 
 ```bash
-cd ProducerConsumerSimulation
-dotnet run
-```
-
-### Running SimulateWorkReductionWithThreads
-
-Navigate to the `SimulateWorkReductionWithThreads` directory:
-
-```bash
-cd SimulateWorkReductionWithThreads
+cd SimpleThreadsExample
 dotnet run
 ```
 
