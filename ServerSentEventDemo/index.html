@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Test</title>
+</head>
+<body>
+    <h1>SSE Test</h1>
+    <div id="events"></div>
+
+    <script>
+        function setupEventSource() {
+            const eventsDiv = document.getElementById('events');
+            const eventSource = new EventSource('http://localhost:5000');
+
+            eventSource.onopen = function(event) {
+                console.log('Connection opened');
+                eventsDiv.innerHTML += '<p>Connection opened</p>';
+            };
+
+            eventSource.onmessage = function(event) {
+                console.log('Received event:', event.data);
+                eventsDiv.innerHTML += `<p>Received: ${event.data}</p>`;
+            };
+
+            eventSource.addEventListener('complete', function(event) {
+                console.log('Received close event:', event.data);
+                eventsDiv.innerHTML += `<p>Stream closed: ${event.data}</p>`;
+                eventSource.close();
+            });
+
+            eventSource.onerror = function(error) {
+                if (eventSource.readyState === EventSource.CLOSED) {
+                    console.log('Connection was closed');
+                    eventsDiv.innerHTML += '<p>Connection was closed</p>';
+                } else {
+                    console.error('EventSource failed:', error);
+                    eventsDiv.innerHTML += '<p>Connection lost. Retrying...</p>';
+                }
+            };
+        }
+
+        setupEventSource();
+    </script>
+</body>
+</html>
