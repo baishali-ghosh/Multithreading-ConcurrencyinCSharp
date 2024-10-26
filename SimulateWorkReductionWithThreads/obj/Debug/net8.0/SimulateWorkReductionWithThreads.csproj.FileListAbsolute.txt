@@ -12,3 +12,4 @@
 /Users/baishalighosh/Documents/dotnetPractice/SimulateWorkReductionWithThreads/obj/Debug/net8.0/SimulateWorkReductionWithThreads.pdb
 /Users/baishalighosh/Documents/dotnetPractice/SimulateWorkReductionWithThreads/obj/Debug/net8.0/SimulateWorkReductionWithThreads.genruntimeconfig.cache
 /Users/baishalighosh/Documents/dotnetPractice/SimulateWorkReductionWithThreads/obj/Debug/net8.0/ref/SimulateWorkReductionWithThreads.dll
+/Users/baishalighosh/Documents/dotnetPractice/SimulateWorkReductionWithThreads/obj/Debug/net8.0/SimulateWorkReductionWithThreads.sourcelink.json

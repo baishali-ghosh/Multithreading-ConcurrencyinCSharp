@@ -6,24 +6,28 @@ This repository contains multiple .NET applications demonstrating various progra
 
 ## Table of Contents
 
-- [Projects](#projects)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Project README](#project-readme)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Projects](#projects)
+  - [Getting Started](#getting-started)
+    - [Cloning the Repository](#cloning-the-repository)
+    - [Navigating to the Project Directory](#navigating-to-the-project-directory)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Projects
 
 The following table lists all projects in the solution, ordered by complexity:
 
-| Project Name | Description |
+| SNo | Project Name | Description |
 |--------------|-------------|
-| SimpleThreadsExample | Introduces basic thread creation and management in C#. |
-| SimulateWorkReductionWithThreads | Demonstrates work distribution across multiple threads to reduce overall processing time. |
-| ProducerConsumerSimulation | Implements the classic producer-consumer problem, showcasing thread synchronization and communication. |
-| BoundedBlockingQueue | Implements a thread-safe queue with a fixed capacity, demonstrating advanced synchronization techniques. |
-| ConnectionPoolWithBoundedQueue | Illustrates a connection pool implementation using a bounded queue, demonstrating resource management in concurrent environments. |
+| 1 | SimpleThreadsExample | Introduces basic thread creation and management in C#. |
+| 2 | SimulateWorkReductionWithThreads | Demonstrates work distribution across multiple threads to reduce overall processing time. |
+| 3 | ProducerConsumerSimulation | Implements the classic producer-consumer problem, showcasing thread synchronization and communication. |
+| 4 | BoundedBlockingQueue | Implements a thread-safe queue with a fixed capacity, demonstrating advanced synchronization techniques. |
+| 5 | ConnectionPoolWithBoundedQueue | Illustrates a connection pool implementation using a bounded queue, demonstrating resource management in concurrent environments. |
 
 ## Getting Started
 
