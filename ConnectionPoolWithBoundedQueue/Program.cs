@@ -39,6 +39,7 @@ class Program
                 break;
             case 2:
                 dbPool = new ConnectionPool<DbConnection>(maxConnections, connectionString);
+                await dbPool.InitializeAsync();
                 break;
             case 3:
                 await BenchmarkWithoutPool(connectionString);
@@ -68,7 +69,7 @@ class Program
                     connection = await dbPool.GetConnectionAsync(taskId);
                 }
                 Console.WriteLine($"Task {taskId}: Got connection: {connection.Id}");
-                await connection.DoWork();
+                await connection.DoWork(i);
                 if (simulationPool != null)
                 {
                     await simulationPool.ReleaseConnectionAsync((SimulatedConnection)connection);
@@ -129,13 +130,14 @@ class Program
 
     static async Task BenchmarkWithPool(string connectionString)
     {
-        int numberOfOperations = 50;
+        int numberOfOperations = 250;
         int poolSize = 4;
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
         var tasks = new List<Task>();
         var connectionPool = new ConnectionPool<DbConnection>(poolSize, connectionString);
+        await connectionPool.InitializeAsync();
 
         for (int i = 0; i < numberOfOperations; i++)
         {
@@ -145,21 +147,21 @@ class Program
                 try
                 {
                     var connection = await connectionPool.GetConnectionAsync(taskId);
-                    Console.WriteLine($"Task {taskId}: Got connection: {connection.Id}");
+                    Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Got connection: {connection.Id}");
                     try
                     {
-                        await connection.DoWork();
-                        Console.WriteLine($"Task {taskId}: Operation completed");
+                        await connection.DoWork(taskId);
+                        Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Operation completed");
                     }
                     finally
                     {
                         await connectionPool.ReleaseConnectionAsync(connection);
-                        Console.WriteLine($"Task {taskId}: Connection released");
+                        Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Connection released");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Task {taskId}: Error: {ex.Message}");
+                    Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Error: {ex.Message}");
                 }
             }));
         }
@@ -177,7 +179,7 @@ public interface IConnection
 {
     Guid Id { get; }
 
-    Task DoWork();
+    Task DoWork(int taskId);
 }
 
 public class SimulatedConnection : IConnection
@@ -194,7 +196,7 @@ public class SimulatedConnection : IConnection
         Console.WriteLine($"SimulatedConnection {connectionString} created");
     }
 
-    public async Task DoWork()
+    public async Task DoWork(int taskId)
     {
         //Console.WriteLine($"SimulatedConnection {Id} is doing work");
         await Task.Delay(1000);
@@ -203,52 +205,57 @@ public class SimulatedConnection : IConnection
 
 public class DbConnection : IConnection
 {
+    public int TaskId { get; set; }
     public Guid Id { get; } = Guid.NewGuid();
     public MySqlConnection Connection { get; private set; }
 
     public DbConnection()
     {
-        Console.WriteLine($"DbConnection {Id} created");
+        Console.WriteLine($"{DateTime.Now.ToString()}: DbConnection {Id} created");
     }
 
     public DbConnection(string connectionString)
     {
         Connection = new MySqlConnection(connectionString);
-        Console.WriteLine($"DbConnection is initialized");
+        Console.WriteLine($"{DateTime.Now.ToString()}: DbConnection is initialized");
     }
-    public async Task DoWork()
+
+    public async Task DoWork(int taskId)
     {
         try
         {
-            Console.WriteLine($"DbConnection {Id}: Attempting to open connection");
+            Console.WriteLine($"{DateTime.Now.ToString()}: [{taskId}]: DbConnection {Id}: Attempting to open connection");
             await Connection.OpenAsync();
             //Console.WriteLine($"DbConnection {Id}: Connection opened successfully");
             var command = new MySqlCommand("SELECT SLEEP(0.01)", Connection);
             await command.ExecuteNonQueryAsync();
-            Console.WriteLine($"DbConnection {Id}: Query completed");
+            Console.WriteLine($"{DateTime.Now.ToString()}: [{taskId}]: DbConnection {Id}: Query completed");
             await Connection.CloseAsync();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"DbConnection {Id}: Error in DoWork: {ex.Message}");
-            Console.WriteLine($"DbConnection {Id}: Stack trace: {ex.StackTrace}");
+            Console.WriteLine($"{DateTime.Now.ToString()}: [{taskId}]: DbConnection {Id}: Error in DoWork: {ex.Message}");
+            Console.WriteLine($"{DateTime.Now.ToString()}: [{taskId}]: DbConnection {Id}: Stack trace: {ex.StackTrace}");
         }
         finally
         {
             if (Connection.State == System.Data.ConnectionState.Open)
             {
-                Console.WriteLine($"DbConnection {Id}: Closing connection");
+                Console.WriteLine($"{DateTime.Now.ToString()}: [{TaskId}]: DbConnection {Id}: Closing connection");
                 await Connection.CloseAsync();
-                Console.WriteLine($"DbConnection {Id}: Connection closed");
+                Console.WriteLine($"{DateTime.Now.ToString()}: DbConnection {Id}: Connection closed");
             }
         }
     }
 
-    public void Initialize(string connectionString)
+    public async Task Initialize(string connectionString)
     {
-        Console.WriteLine($"DbConnection is initializing");
+        Console.WriteLine($"{DateTime.Now.ToString()}: DbConnection is initializing");
         Connection = new MySqlConnection(connectionString);
-        Console.WriteLine($"DbConnection is initialized");
+        // Without doing this, the first connection attempt will timeout when there are many concurrent connections
+        await Connection.OpenAsync();
+        await Connection.CloseAsync();
+        Console.WriteLine($"{DateTime.Now.ToString()}: DbConnection is initialized");
     }
 }
 
@@ -265,6 +272,11 @@ public class ConnectionPool<TConnection> where TConnection : class, IConnection,
         _connectionString = connectionString;
         _pool = new BlockingCollection<TConnection>(new ConcurrentQueue<TConnection>(), _maxSize);
 
+
+    }
+
+    public async Task InitializeAsync()
+    {
         // Initialize the pool with connections
         for (int i = 0; i < _maxSize; i++)
         {
@@ -275,18 +287,21 @@ public class ConnectionPool<TConnection> where TConnection : class, IConnection,
             }
             else if (connection is DbConnection dbConnection)
             {
-                dbConnection.Initialize(_connectionString);
+                await dbConnection.Initialize(_connectionString);
             }
             _pool.Add(connection);
         }
     }
 
+
     public async Task<TConnection> GetConnectionAsync(int taskId)
     {
         //var startTime = DateTime.UtcNow; // Record the start time
+        Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Waiting to get connection");
         var connection = _pool.Take();
+        Console.WriteLine($"{DateTime.Now.ToString()}: Task {taskId}: Waiting to get connection");
         //var waitTime = DateTime.UtcNow - startTime; // Calculate wait time
-        //Console.WriteLine($"Task {taskId}: Waited for {waitTime.TotalMilliseconds} ms to get connection."); // Log wait time with task ID
+        // Console.WriteLine($"Task {taskId}: Waited for {waitTime.TotalMilliseconds} ms to get connection."); // Log wait time with task ID
         return connection;
     }
 
