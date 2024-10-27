@@ -22,7 +22,7 @@ This repository contains multiple .NET applications demonstrating various progra
 The following table lists all projects in the solution, ordered by complexity:
 
 | SNo | Project Name | Description |
-|--------------|-------------|
+|--------------|-------------|-------------|
 | 1 | SimpleThreadsExample | Introduces basic thread creation and management in C#. |
 | 2 | SimulateWorkReductionWithThreads | Demonstrates work distribution across multiple threads to reduce overall processing time. |
 | 3 | ProducerConsumerSimulation | Implements the classic producer-consumer problem, showcasing thread synchronization and communication. |
