@@ -9,7 +9,7 @@ Console.WriteLine("Hello, World!");
 
 
 // This is better in cases where the result is often available synchronously, 
-// as it can lead to better performance by reducing the overhead of creating Task objects.
+// as it can lead to better performance by reducing the overhead of creating yTask objects.
 ValueTask<int> GetAsyncValue(bool isReady) {
     if(isReady){
         return new ValueTask<int>(45);

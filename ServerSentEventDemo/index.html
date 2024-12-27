@@ -22,6 +22,7 @@
                 eventsDiv.innerHTML += `<p>Received: ${event.data}</p>`;
             };
 
+            // Example of handling a custom event
             eventSource.addEventListener('complete', function(event) {
                 console.log('Received close event:', event.data);
                 eventsDiv.innerHTML += `<p>Stream closed: ${event.data}</p>`;

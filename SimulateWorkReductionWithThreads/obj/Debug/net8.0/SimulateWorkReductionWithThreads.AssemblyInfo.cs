@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimulateWorkReductionWithThreads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0d757c505da0fe1635f84a790e9abc14a9b06aa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ea18457b597b9e903c880ff753c48d8c9d34c59")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimulateWorkReductionWithThreads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimulateWorkReductionWithThreads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
