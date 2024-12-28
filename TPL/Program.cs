@@ -5,10 +5,11 @@ using System.Threading;
 
 class Program
 {
+    static Action x = () => { Console.WriteLine("Sdd"); };
     static void Main(string[] args)
     {
         // Example of using TPL to run tasks in parallel
-        Task task1 = Task.Run(() => DoWork(1));
+        Task task1 = Task.Run(Program.x);
         Task task2 = Task.Run(() => DoWork(2));
 
         Task.WaitAll(task1, task2); // Wait for both tasks to complete
